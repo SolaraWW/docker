@@ -1,7 +1,6 @@
 FROM debian:stretch
 
-LABEL org.label-schema.license="GPL-2.0" \
-      org.label-schema.vcs-url="https://github.com/javierluraschi/multiverse-k8s" \
+LABEL org.label-schema.vcs-url="https://github.com/mlverse/mlverse-docker" \
       org.label-schema.vendor="Javier Luraschi" \
       maintainer="Javier Luraschi <javier@rstudio.com>"
 
@@ -127,14 +126,14 @@ ENV S6_BEHAVIOUR_IF_STAGE2_FAILS=2
 ENV PATH=/usr/lib/rstudio-server/bin:$PATH
 ENV PANDOC_TEMPLATES_VERSION=${PANDOC_TEMPLATES_VERSION:-2.6}
 
-# multiverse deps
+# mlverse deps
 RUN apt-get update \
   && apt-get install -y --no-install-recommends \
     libgit2-dev \
     openjdk-8-jdk \
     libxml2-dev
 
-# multiverse deps conda
+# mlverse deps conda
 ENV PATH /opt/conda/bin:$PATH
 RUN apt-get update --fix-missing && apt-get install -y wget bzip2 ca-certificates \
     libglib2.0-0 libxext6 libsm6 libxrender1 \
@@ -284,12 +283,7 @@ RUN jupyter nbextension enable     --user --py nbrsessionproxy
 
 ENV LD_LIBRARY_PATH /usr/local/lib/R/lib
 
-# Setup multiverse
-RUN R --quiet -e "install.packages(c('sparklyr', 'tensorflow', 'keras', 'mlflow'))"
-RUN R --quiet -e "sparklyr::spark_install(version = '2.3')"
-
+# Setup mlverse
 RUN pip3 install --upgrade --user virtualenv
-
-RUN R --quiet -e "tensorflow::install_tensorflow()"
-RUN R --quiet -e "keras::install_keras()"
-RUN R --quiet -e "mlflow::install_mlflow()"
+RUN R --quiet -e "remotes::install_github('mlverse/mlverse-r')"
+RUN R --quiet -e "mlverse::install_mlverse()"
