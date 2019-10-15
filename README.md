@@ -63,4 +63,8 @@ You can also use [free GPUs in Paperspace](https://blog.paperspace.com/paperspac
 
 ![](images/mlverse-paperspace.png)
 
+## RStudio
 
+RStudio Server sessions can starting an `RStudio Session` from the `New` dropdown.
+
+![](images/mlverse-rstudio.png)
