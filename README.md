@@ -53,4 +53,8 @@ docker run -p 8888:8888 -u root -d <instance-id> jupyter notebook --ip 0.0.0.0 -
 
 ## MyBinder
 
+To launch using [mybinder.org](https://mybinder.org), create a badge using this docker image. See [github.com/mlverse/mlverse-binder](https://github.com/mlverse/mlverse-binder).
+
+[![](images/mlverse-mybinder.png)](https://github.com/mlverse/mlverse-binder)
+
 ## Paperspace
