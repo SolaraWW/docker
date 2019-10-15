@@ -58,3 +58,9 @@ To launch using [mybinder.org](https://mybinder.org), create a badge using this 
 [![](images/mlverse-mybinder.png)](https://github.com/mlverse/mlverse-binder)
 
 ## Paperspace
+
+You can also use [free GPUs in Paperspace](https://blog.paperspace.com/paperspace-launches-gradient-community-notebooks/) with this image. When starting Paperspace, use `mlverse/mlverse-base:version-0.0.2` as the containere name and `jupyter notebook --allow-root -ip=0.0.0.0`.
+
+![](images/mlverse-paperspace.png)
+
+
