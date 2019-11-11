@@ -18,7 +18,7 @@ LABEL org.label-schema.vcs-url="https://github.com/mlverse/mlverse-docker" \
 
 RUN echo "deb http://developer.download.nvidia.com/compute/machine-learning/repos/ubuntu1604/x86_64 /" > /etc/apt/sources.list.d/nvidia-ml.list
 
-RUN apt-get update
+RUN apt-get update \
   && apt-get install -y --no-install-recommends \
     build-essential \
     cmake \
