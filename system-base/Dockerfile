@@ -46,13 +46,10 @@ RUN apt-get update \
     libblas-dev \
     libbz2-1.0 \
     libcurl3 \
-    libicu57 \
-    libjpeg62-turbo \
     libopenblas-dev \
     libpangocairo-1.0-0 \
     libpcre3 \
     libpng16-16 \
-    libreadline7 \
     libtiff5 \
     liblzma5 \
     locales \
