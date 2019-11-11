@@ -1,8 +1,4 @@
-FROM debian:stretch
-
-LABEL org.label-schema.vcs-url="https://github.com/mlverse/mlverse-docker" \
-      org.label-schema.vendor="Javier Luraschi" \
-      maintainer="Javier Luraschi <javier@rstudio.com>"
+FROM nvidia/cuda:9.2-base-ubuntu16.04
 
 ARG R_VERSION
 ARG BUILD_DATE
@@ -11,6 +7,32 @@ ENV R_VERSION=${R_VERSION:-3.6.0} \
     LC_ALL=en_US.UTF-8 \
     LANG=en_US.UTF-8 \
     TERM=xterm
+
+# See http://bugs.python.org/issue19846
+ENV LANG C.UTF-8
+
+LABEL org.label-schema.vcs-url="https://github.com/mlverse/mlverse-docker" \
+      org.label-schema.vendor="Javier Luraschi" \
+      maintainer="Javier Luraschi <javier@rstudio.com>" \
+      com.nvidia.volumes.needed="nvidia_driver"
+
+RUN echo "deb http://developer.download.nvidia.com/compute/machine-learning/repos/ubuntu1604/x86_64 /" > /etc/apt/sources.list.d/nvidia-ml.list
+
+RUN apt-get update
+  && apt-get install -y --no-install-recommends \
+    build-essential \
+    cmake \
+    git \
+    curl \
+    vim \
+    ca-certificates \
+    libjpeg-dev \
+    zip \
+    unzip \
+    libpng-dev && \
+  rm -rf /var/lib/apt/lists/*
+
+ENV LD_LIBRARY_PATH /usr/local/nvidia/lib:/usr/local/nvidia/lib64
 
 RUN apt-get update \
   && apt-get install -y --no-install-recommends \
