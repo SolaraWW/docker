@@ -170,12 +170,12 @@ RUN apt update && \
     curl https://apt.llvm.org/llvm-snapshot.gpg.key | sudo apt-key add - && \
     (echo "deb http://apt.llvm.org/$(lsb_release --codename --short)/ llvm-toolchain-$(lsb_release --codename --short)-7 main" | tee /etc/apt/sources.list.d/llvm.list) && \
     (echo "deb-src http://apt.llvm.org/$(lsb_release --codename --short)/ llvm-toolchain-$(lsb_release --codename --short)-7 main" | tee -a /etc/apt/sources.list.d/llvm.list) && \
-    sudo apt update && \
-    sudo apt install -y -V libarrow-dev && \
-    sudo apt install -y -V libarrow-glib-dev && \
-    sudo apt install -y -V libplasma-dev && \
-    sudo apt install -y -V libplasma-glib-dev && \
-    sudo apt install -y -V libgandiva-dev && \
-    sudo apt install -y -V libgandiva-glib-dev && \
-    sudo apt install -y -V libparquet-dev && \
-    sudo apt install -y -V libparquet-glib-dev
+    apt update && \
+    apt install -y -V libarrow-dev && \
+    apt install -y -V libarrow-glib-dev && \
+    apt install -y -V libplasma-dev && \
+    apt install -y -V libplasma-glib-dev && \
+    apt install -y -V libgandiva-dev && \
+    apt install -y -V libgandiva-glib-dev && \
+    apt install -y -V libparquet-dev && \
+    apt install -y -V libparquet-glib-dev
