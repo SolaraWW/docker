@@ -7,6 +7,7 @@ ENV R_VERSION=${R_VERSION:-3.6.0} \
     LC_ALL=en_US.UTF-8 \
     LANG=en_US.UTF-8 \
     TERM=xterm
+ENV DEBIAN_FRONTEND=noninteractive
 
 # See http://bugs.python.org/issue19846
 ENV LANG C.UTF-8
