@@ -137,4 +137,7 @@ RUN apt update && \
     (echo "deb http://apt.llvm.org/$(lsb_release --codename --short)/ llvm-toolchain-$(lsb_release --codename --short)-7 main" | tee /etc/apt/sources.list.d/llvm.list) && \
     (echo "deb-src http://apt.llvm.org/$(lsb_release --codename --short)/ llvm-toolchain-$(lsb_release --codename --short)-7 main" | tee -a /etc/apt/sources.list.d/llvm.list) && \
     apt update && \
-    apt install -y -V libarrow-dev
+    apt install -y -V libarrow-dev && \
+    apt install -y -V libarrow-glib-dev && \
+    apt install -y -V libparquet-dev && \
+    apt install -y -V libparquet-glib-dev
