@@ -26,15 +26,15 @@ RUN apt-get update \
     wget \
     libclang-dev \
     libclang-3.8-dev \
-    libobjc-6-dev \
+    libobjc-5-dev \
     libclang1-3.8 \
     libclang-common-3.8-dev \
     libllvm3.8 \
     libobjc4 \
     libgc1c2 \
-  && if [ -z "$RSTUDIO_VERSION" ]; then RSTUDIO_URL="https://www.rstudio.org/download/latest/stable/server/debian9_64/rstudio-server-latest-amd64.deb"; else RSTUDIO_URL="http://download2.rstudio.org/server/debian9/x86_64/rstudio-server-${RSTUDIO_VERSION}-amd64.deb"; fi \
+  && if [ -z "$RSTUDIO_VERSION" ]; then RSTUDIO_URL="https://download2.rstudio.org/server/trusty/amd64/rstudio-server-1.2.5019-amd64.deb"; else RSTUDIO_URL="https://download2.rstudio.org/server/trusty/amd64/rstudio-server-${RSTUDIO_VERSION}-amd64.deb"; fi \
   && wget -q $RSTUDIO_URL \
-  && dpkg -i rstudio-server-*-amd64.deb \
+  && gdebi rstudio-server-*-amd64.deb \
   && rm rstudio-server-*-amd64.deb \
   ## Symlink pandoc & standard pandoc templates for use system-wide
   && ln -s /usr/lib/rstudio-server/bin/pandoc/pandoc /usr/local/bin \
