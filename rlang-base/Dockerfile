@@ -126,22 +126,3 @@ RUN apt-get install -y curl grep sed dpkg && \
     dpkg -i tini.deb && \
     rm tini.deb && \
     apt-get clean
-
-# arrow deps
-RUN apt update && \
-    apt install -y -V apt-transport-https curl gnupg lsb-release && \
-    curl https://dist.apache.org/repos/dist/dev/arrow/KEYS | apt-key add - && \
-    (echo "deb [arch=amd64] https://dl.bintray.com/apache/arrow/$(lsb_release --id --short | tr 'A-Z' 'a-z')/ $(lsb_release --codename --short) main" | tee /etc/apt/sources.list.d/apache-arrow.list) && \
-    (echo "deb-src https://dl.bintray.com/apache/arrow/$(lsb_release --id --short | tr 'A-Z' 'a-z')/ $(lsb_release --codename --short) main" | tee -a /etc/apt/sources.list.d/apache-arrow.list) && \
-    curl https://apt.llvm.org/llvm-snapshot.gpg.key | apt-key add - && \
-    (echo "deb http://apt.llvm.org/$(lsb_release --codename --short)/ llvm-toolchain-$(lsb_release --codename --short)-7 main" | tee /etc/apt/sources.list.d/llvm.list) && \
-    (echo "deb-src http://apt.llvm.org/$(lsb_release --codename --short)/ llvm-toolchain-$(lsb_release --codename --short)-7 main" | tee -a /etc/apt/sources.list.d/llvm.list) && \
-    apt update && \
-    apt install -y -V libarrow-dev && \
-    apt install -y -V libarrow-glib-dev && \
-    apt install -y -V libplasma-dev && \
-    apt install -y -V libplasma-glib-dev && \
-    apt install -y -V libgandiva-dev && \
-    apt install -y -V libgandiva-glib-dev && \
-    apt install -y -V libparquet-dev && \
-    apt install -y -V libparquet-glib-dev
