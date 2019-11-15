@@ -64,6 +64,22 @@ You can also use [free GPUs in Paperspace](https://blog.paperspace.com/paperspac
 
 ![](images/mlverse-paperspace.png)
 
+## Google Cloud Compute
+
+From Google Cloud Compute, you can create a compute instance and specify the Docker image as,
+
+```bash
+registry.hub.docker.com/mlverse/mlverse-base:version-0.0.1
+```
+
+![](mlverse-google-cloud.png)
+
+You can then connect to your instance and start this container,
+
+```
+docker run -p 8888:8888 -d mlverse/mlverse-base:version-0.0.1 jupyter notebook --ip 0.0.0.0
+```
+
 ## RStudio
 
 RStudio Server sessions can starting an `RStudio Session` from the `New` dropdown.

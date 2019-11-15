@@ -33,8 +33,8 @@ RUN apt-get update \
     libobjc4 \
     libgc1c2 \
   && if [ -z "$RSTUDIO_VERSION" ]; then RSTUDIO_URL="https://download2.rstudio.org/server/trusty/amd64/rstudio-server-1.2.5019-amd64.deb"; else RSTUDIO_URL="https://download2.rstudio.org/server/trusty/amd64/rstudio-server-${RSTUDIO_VERSION}-amd64.deb"; fi \
-  && dpkg -i -q $RSTUDIO_URL \
-  && gdebi rstudio-server-*-amd64.deb \
+  && wget -q $RSTUDIO_URL \
+  && dpkg -i rstudio-server-*-amd64.deb \
   && rm rstudio-server-*-amd64.deb \
   ## Symlink pandoc & standard pandoc templates for use system-wide
   && ln -s /usr/lib/rstudio-server/bin/pandoc/pandoc /usr/local/bin \
