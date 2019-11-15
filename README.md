@@ -72,7 +72,7 @@ From Google Cloud Compute, you can create a compute instance and specify the Doc
 registry.hub.docker.com/mlverse/mlverse-base:version-0.0.1
 ```
 
-![](mlverse-google-cloud.png)
+![](images/mlverse-google-cloud.png)
 
 You can then connect to your instance and start this container,
 
