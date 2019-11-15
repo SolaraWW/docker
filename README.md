@@ -78,7 +78,27 @@ You can then connect to your instance and start this container,
 
 ```
 docker run -p 8888:8888 -d mlverse/mlverse-base:version-0.0.1 jupyter notebook --ip 0.0.0.0
+docker ps
+docker logs 197b58288842
 ```
+```
+[I 01:17:36.152 NotebookApp] Writing notebook server cookie secret to /home/rstudio/.local/share/jupyter/runtime/notebook_cookie_secret
+[I 01:17:36.549 NotebookApp] Serving notebooks from local directory: /home/rstudio
+[I 01:17:36.549 NotebookApp] The Jupyter Notebook is running at:
+[I 01:17:36.549 NotebookApp] http://17a8a28fdf86:8888/?token=5fac16c0036820320d3260b87b7ae4681a2eee004fe1c4a8
+[I 01:17:36.549 NotebookApp]  or http://127.0.0.1:8888/?token=5fac16c0036820320d3260b87b7ae4681a2eee004fe1c4a8
+[I 01:17:36.549 NotebookApp] Use Control-C to stop this server and shut down all kernels (twice to skip confirmation).
+[W 01:17:36.556 NotebookApp] No web browser found: could not locate runnable browser.
+[C 01:17:36.557 NotebookApp] 
+    
+    To access the notebook, open this file in a browser:
+        file:///home/rstudio/.local/share/jupyter/runtime/nbserver-1-open.html
+    Or copy and paste one of these URLs:
+        http://17a8a28fdf86:8888/?token=5fac16c0036820320d3260b87b7ae4681a2eee004fe1c4a8
+     or http://127.0.0.1:8888/?token=5fac16c0036820320d3260b87b7ae4681a2eee004fe1c4a8
+```
+
+Which you can then use to login as http://public-ip:8888/?token=5fac16c0036820320d3260b87b7ae4681a2eee004fe1c4a8
 
 ## RStudio
 
