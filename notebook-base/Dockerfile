@@ -1,4 +1,4 @@
-FROM mlverse/mlverse-rlang-base:version-0.0.5
+FROM mlverse/mlverse-rlang-base:version-0.0.6
 
 ARG RSTUDIO_VERSION
 ENV RSTUDIO_VERSION=${RSTUDIO_VERSION:-1.2.1335}
