@@ -1,4 +1,4 @@
-FROM mlverse/mlverse-rlang-base:version-0.0.3
+FROM mlverse/mlverse-rlang-base:version-0.0.5
 
 ARG RSTUDIO_VERSION
 ENV RSTUDIO_VERSION=${RSTUDIO_VERSION:-1.2.1335}
@@ -14,6 +14,7 @@ RUN apt-get update \
   && apt-get install -y --no-install-recommends \
     file \
     git \
+    gdebi-core \
     libapparmor1 \
     libcurl4-openssl-dev \
     libedit2 \
