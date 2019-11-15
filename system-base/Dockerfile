@@ -1,4 +1,4 @@
-FROM nvidia/cuda:9.0-cudnn7-devel-ubuntu16.04
+FROM nvidia/cuda:10.0-cudnn7-devel-ubuntu16.04
 
 ARG R_VERSION
 ARG BUILD_DATE
@@ -26,8 +26,8 @@ RUN apt-get update && apt-get install -y --allow-downgrades --no-install-recomme
          curl \
          vim \
          ca-certificates \
-         libnccl2=2.0.5-3+cuda9.0 \
-         libnccl-dev=2.0.5-3+cuda9.0 \
+         libnccl2=2.3.7-1+cuda10.0 \
+         libnccl-dev=2.3.7-1+cuda10.0 \
          python-qt4 \
          libjpeg-dev \
 	 zip \
