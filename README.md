@@ -10,19 +10,19 @@ This image can be used with [docker](#docker), [MyBinder](#mybinder), [Paperspac
 First pull the image as follows, replace the version as needed:
 
 ```bash
-docker pull mlverse/mlverse-base:version-0.0.4
+docker pull mlverse/mlverse-base:version-0.0.5
 ```
 
 Then launch Jupyter and RStudio by initializing docker and the seessions,
 
 ```bash
-docker run -d mlverse/mlverse-base:version-0.0.4 jupyter notebook --ip 0.0.0.0
+docker run -d mlverse/mlverse-base:version-0.0.5 jupyter notebook --ip 0.0.0.0
 ```
 
 When using cloud providers (like Google Clooud, Amazon AWS, etc), you can consider mapping ports to make the web sessions available online:
 
 ```bash
-docker run -p 8888:8888  -d mlverse/mlverse-base:version-0.0.4 jupyter notebook --ip 0.0.0.0
+docker run -p 8888:8888  -d mlverse/mlverse-base:version-0.0.5 jupyter notebook --ip 0.0.0.0
 
 docker ps
 docker logs <container-id>
@@ -60,7 +60,7 @@ To launch using [mybinder.org](https://mybinder.org), create a badge using this 
 
 ## Paperspace
 
-You can also use [free GPUs in Paperspace](https://blog.paperspace.com/paperspace-launches-gradient-community-notebooks/) with this image. When starting Paperspace, use `mlverse/mlverse-base:version-0.0.4` as the containere name and `jupyter notebook --allow-root -ip=0.0.0.0`. An instance can be launched from [paperspace.com/console/notebooks/create](https://www.paperspace.com/console/notebooks/create).
+You can also use [free GPUs in Paperspace](https://blog.paperspace.com/paperspace-launches-gradient-community-notebooks/) with this image. When starting Paperspace, use `mlverse/mlverse-base:version-0.0.5` as the containere name and `jupyter notebook --allow-root -ip=0.0.0.0`. An instance can be launched from [paperspace.com/console/notebooks/create](https://www.paperspace.com/console/notebooks/create).
 
 ![](images/mlverse-paperspace.png)
 
@@ -69,7 +69,7 @@ You can also use [free GPUs in Paperspace](https://blog.paperspace.com/paperspac
 From Google Cloud Compute, you can create a compute instance and specify the Docker image as,
 
 ```bash
-registry.hub.docker.com/mlverse/mlverse-base:version-0.0.4
+registry.hub.docker.com/mlverse/mlverse-base:version-0.0.5
 ```
 
 ![](images/mlverse-google-cloud.png)
@@ -77,7 +77,7 @@ registry.hub.docker.com/mlverse/mlverse-base:version-0.0.4
 You can then connect to your instance and start this container,
 
 ```
-docker run -p 8888:8888 -d mlverse/mlverse-base:version-0.0.4 jupyter notebook --ip 0.0.0.0
+docker run -p 8888:8888 -d mlverse/mlverse-base:version-0.0.5 jupyter notebook --ip 0.0.0.0
 docker ps
 docker logs 197b58288842
 ```
