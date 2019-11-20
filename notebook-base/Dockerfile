@@ -25,11 +25,7 @@ RUN apt-get update \
     sudo \
     wget \
     libclang-dev \
-    libclang-3.8-dev \
     libobjc-5-dev \
-    libclang1-3.8 \
-    libclang-common-3.8-dev \
-    libllvm3.8 \
     libobjc4 \
     libgc1c2 \
   && if [ -z "$RSTUDIO_VERSION" ]; then RSTUDIO_URL="https://download2.rstudio.org/server/trusty/amd64/rstudio-server-1.2.5019-amd64.deb"; else RSTUDIO_URL="https://download2.rstudio.org/server/trusty/amd64/rstudio-server-${RSTUDIO_VERSION}-amd64.deb"; fi \
