@@ -44,7 +44,7 @@ RUN apt-get update \
   ## RStudio wants an /etc/R, will populate from $R_HOME/etc
   && mkdir -p /etc/R \
   ## Write config files in $R_HOME/etc
-  && echo '\n\
+  && echo -e '\n\
     \n# Configure httr to perform out-of-band authentication if HTTR_LOCALHOST \
     \n# is not set since a redirect to localhost may not work depending upon \
     \n# where this Docker container is running. \
@@ -69,16 +69,16 @@ RUN apt-get update \
   && wget -P /tmp/ https://github.com/just-containers/s6-overlay/releases/download/${S6_VERSION}/s6-overlay-amd64.tar.gz \
   && tar xzf /tmp/s6-overlay-amd64.tar.gz -C / \
   && mkdir -p /etc/services.d/rstudio \
-  && echo '#!/usr/bin/with-contenv bash \
+  && echo -e '#!/usr/bin/with-contenv bash \
           \n## load /etc/environment vars first: \
           \n for line in $( cat /etc/environment ) ; do export $line ; done \
           \n exec /usr/lib/rstudio-server/bin/rserver --server-daemonize 0' \
           > /etc/services.d/rstudio/run \
-  && echo '#!/bin/bash \
+  && echo -e '#!/bin/bash \
           \n rstudio-server stop' \
           > /etc/services.d/rstudio/finish \
   && mkdir -p /home/rstudio/.rstudio/monitored/user-settings \
-  && echo 'alwaysSaveHistory="0" \
+  && echo -e 'alwaysSaveHistory="0" \
           \nloadRData="0" \
           \nsaveAction="0"' \
           > /home/rstudio/.rstudio/monitored/user-settings/user-settings \
