@@ -1,6 +1,12 @@
 FROM mlverse/mlverse-system-base:version-0.1.4
 
+ARG R_VERSION
+ENV R_VERSION=${R_VERSION:-3.6.0} \
+    TERM=xterm
 ENV DEBIAN_FRONTEND=noninteractive
+
+# See http://bugs.python.org/issue19846
+ENV LANG C.UTF-8
 
 RUN apt-get update \
   && apt-get install -y --no-install-recommends \
