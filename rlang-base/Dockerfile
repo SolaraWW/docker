@@ -1,5 +1,7 @@
 FROM mlverse/mlverse-system-base:version-0.1.4
 
+ENV DEBIAN_FRONTEND=noninteractive
+
 RUN apt-get update \
   && apt-get install -y --no-install-recommends \
     bash-completion \
