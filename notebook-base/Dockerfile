@@ -93,7 +93,7 @@ COPY pam-helper.sh /usr/lib/rstudio-server/bin/pam-helper
 EXPOSE 8787
 
 RUN apt-get update && \
-    apt-get -y install python3-pip && \
+    apt-get -y install python3-pip python3-venv && \
     pip3 install --no-cache-dir notebook==6.0.1 nbrsessionproxy nbserverproxy && \
     apt-get purge && \
     apt-get clean && \
