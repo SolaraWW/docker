@@ -1,4 +1,4 @@
-FROM mlverse/mlverse-notebook-base:version-0.1.2
+FROM mlverse/mlverse-notebook-base:version-0.1.3
 
 # Setup mlverse
 RUN pip3 install --upgrade --user virtualenv
