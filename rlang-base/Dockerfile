@@ -1,4 +1,4 @@
-FROM mlverse/mlverse-system-base:version-0.1.4
+FROM mlverse/mlverse-system-base:version-0.1.5
 
 ARG R_VERSION
 ENV R_VERSION=${R_VERSION:-3.6.0} \
