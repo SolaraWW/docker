@@ -1,4 +1,4 @@
-FROM tensorflow/tensorflow:2.0.0-gpu
+FROM tensorflow/tensorflow:2.1.0rc2-gpu
 
 ARG BUILD_DATE
 ENV BUILD_DATE ${BUILD_DATE:-2019-11-19}
