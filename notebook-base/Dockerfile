@@ -28,7 +28,7 @@ RUN apt-get update \
     libobjc-5-dev \
     libobjc4 \
     libgc1c2 \
-  && if [ -z "$RSTUDIO_VERSION" ]; then RSTUDIO_URL="https://download2.rstudio.org/server/trusty/amd64/rstudio-server-1.2.5019-amd64.deb"; else RSTUDIO_URL="https://download2.rstudio.org/server/trusty/amd64/rstudio-server-${RSTUDIO_VERSION}-amd64.deb"; fi \
+  && if [ -z "$RSTUDIO_VERSION" ]; then RSTUDIO_URL="https://download2.rstudio.org/server/trusty/amd64/rstudio-server-1.2.5033-amd64.deb"; else RSTUDIO_URL="https://download2.rstudio.org/server/trusty/amd64/rstudio-server-${RSTUDIO_VERSION}-amd64.deb"; fi \
   && wget -q $RSTUDIO_URL \
   && dpkg -i rstudio-server-*-amd64.deb \
   && rm rstudio-server-*-amd64.deb \
