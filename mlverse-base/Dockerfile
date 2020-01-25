@@ -6,3 +6,7 @@ ENV TF_CPP_MIN_LOG_LEVEL=1
 RUN pip3 install --upgrade --user virtualenv
 RUN echo "Invalidate Cache: $RANDOM" && R --quiet -e "remotes::install_github('mlverse/mlverse-r')"
 RUN echo "Invalidate Cache: $RANDOM" && R --quiet -e "mlverse::install_mlverse('gpu')"
+
+USER root
+RUN adduser rstudio sudo
+USER rstudio
