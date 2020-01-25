@@ -1,7 +1,7 @@
 FROM mlverse/mlverse-rlang-base:version-0.1.0
 
 ARG RSTUDIO_VERSION
-ENV RSTUDIO_URL=https://s3.amazonaws.com/rstudio-ide-build/desktop/xenial/amd64/rstudio-1.3.777-amd64.deb
+ENV RSTUDIO_URL=https://s3.amazonaws.com/rstudio-ide-build/server/bionic/amd64/rstudio-server-1.3.779-amd64.deb
 ARG S6_VERSION
 ARG PANDOC_TEMPLATES_VERSION
 ENV S6_VERSION=${S6_VERSION:-v1.21.7.0}
