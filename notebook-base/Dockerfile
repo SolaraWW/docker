@@ -1,7 +1,7 @@
 FROM mlverse/mlverse-rlang-base:version-0.1.0
 
 ARG RSTUDIO_VERSION
-ENV RSTUDIO_VERSION=${RSTUDIO_VERSION:-1.2.5033}
+ENV RSTUDIO_URL="hhttps://s3.amazonaws.com/rstudio-ide-build/desktop/xenial/amd64/rstudio-1.3.777-amd64.deb"
 ARG S6_VERSION
 ARG PANDOC_TEMPLATES_VERSION
 ENV S6_VERSION=${S6_VERSION:-v1.21.7.0}
@@ -28,7 +28,6 @@ RUN apt-get update \
     libobjc-5-dev \
     libobjc4 \
     libgc1c2 \
-  && if [ -z "$RSTUDIO_VERSION" ]; then RSTUDIO_URL="hhttps://s3.amazonaws.com/rstudio-ide-build/desktop/xenial/amd64/rstudio-1.3.777-amd64.deb"; else RSTUDIO_URL="https://download2.rstudio.org/server/trusty/amd64/rstudio-server-${RSTUDIO_VERSION}-amd64.deb"; fi \
   && wget -q $RSTUDIO_URL \
   && dpkg -i rstudio-server-*-amd64.deb \
   && rm rstudio-server-*-amd64.deb \
