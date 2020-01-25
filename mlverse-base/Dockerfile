@@ -1,4 +1,4 @@
-FROM mlverse/mlverse-notebook-base:version-0.1.7
+FROM mlverse/mlverse-notebook-base:version-0.1.8
 
 ENV TF_CPP_MIN_LOG_LEVEL=1
 
