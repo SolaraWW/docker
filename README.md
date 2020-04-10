@@ -14,19 +14,19 @@ Note that TensorFlow 2.0 and this docker image requires Cuda 10, [NVIDIA/nvidia-
 First pull the image as follows, replace the version as needed:
 
 ```bash
-docker pull mlverse/mlverse-base:version-0.0.8
+docker pull mlverse/mlverse-base:version-0.1.7
 ```
 
 Then launch Jupyter and RStudio by initializing docker and the seessions,
 
 ```bash
-docker run -d mlverse/mlverse-base:version-0.0.8 jupyter notebook --ip 0.0.0.0
+docker run -d mlverse/mlverse-base:version-0.1.7 jupyter notebook --ip 0.0.0.0
 ```
 
 When using cloud providers (like Google Clooud, Amazon AWS, etc), you can consider mapping ports to make the web sessions available online:
 
 ```bash
-docker run -p 8888:8888  -d mlverse/mlverse-base:version-0.0.8 jupyter notebook --ip 0.0.0.0
+docker run -p 8888:8888  -d mlverse/mlverse-base:version-0.1.7 jupyter notebook --ip 0.0.0.0
 ```
 
 When using GPUs, launch with,
@@ -70,7 +70,7 @@ To launch using [mybinder.org](https://mybinder.org), create a badge using this 
 
 ## Paperspace
 
-You can also use [free GPUs in Paperspace](https://blog.paperspace.com/paperspace-launches-gradient-community-notebooks/) with this image. When starting Paperspace, use `mlverse/mlverse-base:version-0.0.8` as the containere name and `jupyter notebook --allow-root -ip=0.0.0.0`. An instance can be launched from [paperspace.com/console/notebooks/create](https://www.paperspace.com/console/notebooks/create).
+You can also use [free GPUs in Paperspace](https://blog.paperspace.com/paperspace-launches-gradient-community-notebooks/) with this image. When starting Paperspace, use `mlverse/mlverse-base:version-0.1.7` as the containere name and `jupyter notebook --allow-root -ip=0.0.0.0`. An instance can be launched from [paperspace.com/console/notebooks/create](https://www.paperspace.com/console/notebooks/create).
 
 ![](images/mlverse-paperspace.png)
 
@@ -79,7 +79,7 @@ You can also use [free GPUs in Paperspace](https://blog.paperspace.com/paperspac
 From Google Cloud Compute, you can create a compute instance and specify the Docker image as,
 
 ```bash
-registry.hub.docker.com/mlverse/mlverse-base:version-0.0.8
+registry.hub.docker.com/mlverse/mlverse-base:version-0.1.7
 ```
 
 ![](images/mlverse-google-cloud.png)
@@ -94,13 +94,13 @@ A Debian based image with CUDA 10.0.
 You can then connect to your instance and start this container,
 
 ```bash
-docker run -p 8888:8888 -d mlverse/mlverse-base:version-0.0.8 jupyter notebook --ip 0.0.0.0
+docker run -p 8888:8888 -d mlverse/mlverse-base:version-0.1.7 jupyter notebook --ip 0.0.0.0
 ```
 
 When using GPUs launch as,
 
 ```bash
-docker run --gpus all -p 8888:8888 -d mlverse/mlverse-base:version-0.0.8 jupyter notebook --ip 0.0.0.0
+docker run --gpus all -p 8888:8888 -d mlverse/mlverse-base:version-0.1.7 jupyter notebook --ip 0.0.0.0
 ```
 
 ```
