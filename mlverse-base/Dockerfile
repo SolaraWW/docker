@@ -37,7 +37,8 @@ RUN mkdir /home/rstudio
 RUN chown rstudio:rstudio /home/rstudio
 RUN addgroup rstudio staff
 
-RUN apt-get install -y python3-dev python3-pip
-RUN pip3 install virtualenv 
+RUN apt-get install -y python3-dev python3-pip python3-venv
+RUN python3 -m pip install --upgrade pip
+RUN echo "alias python=python3" >> ~/.bash_aliases
 
 CMD rstudio-server start & tail -f /dev/null
