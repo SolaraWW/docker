@@ -37,4 +37,7 @@ RUN mkdir /home/rstudio
 RUN chown rstudio:rstudio /home/rstudio
 RUN addgroup rstudio staff
 
+RUN apt-get install -y python3-dev
+RUN pip3 install virtualenv 
+
 CMD rstudio-server start & tail -f /dev/null

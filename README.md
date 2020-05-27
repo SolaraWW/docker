@@ -55,5 +55,6 @@ When using GPUs launch as,
 docker run --gpus all -p 8787:8787 -d mlverse/mlverse-base:version-0.2.0
 ```
 
-Which you can then use to login as http://public-ip:8888/?token=5fac16c0036820320d3260b87b7ae4681a2eee004fe1c4a8
+Which you can then use to login as http://public-ip:8787 with username `rstudio` and password `rstudio`.
+
 
