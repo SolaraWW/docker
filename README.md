@@ -17,7 +17,7 @@ docker pull mlverse/mlverse-base:version-0.2.0
 Then launch the image as follows,
 
 ```bash
-docker run -it -p 8787:8787 --entrypoint /bin/bash -d mlverse/mlverse-base:version-0.2.0 -s
+docker run -p 8787:8787 -d mlverse/mlverse-base:version-0.2.0
 ```
 
 You can then launch R or RStudio Server:
@@ -46,13 +46,13 @@ A Debian based image with CUDA 10.0.
 You can then connect to your instance and start this container,
 
 ```bash
-docker run -it -p 8787:8787 --entrypoint /bin/bash -d mlverse/mlverse-base:version-0.2.0 -s
+docker run -p 8787:8787 -d mlverse/mlverse-base:version-0.2.0
 ```
 
 When using GPUs launch as,
 
 ```bash
-docker run --gpus all -it -p 8787:8787 --entrypoint /bin/bash -d mlverse/mlverse-base:version-0.2.0 -s
+docker run --gpus all -p 8787:8787 -d mlverse/mlverse-base:version-0.2.0
 ```
 
 Which you can then use to login as http://public-ip:8888/?token=5fac16c0036820320d3260b87b7ae4681a2eee004fe1c4a8

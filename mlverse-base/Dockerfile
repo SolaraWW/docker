@@ -36,3 +36,5 @@ RUN adduser rstudio sudo
 RUN mkdir /home/rstudio
 RUN chown rstudio:rstudio /home/rstudio
 RUN addgroup rstudio staff
+
+CMD rstudio-server start & tail -f /dev/null
