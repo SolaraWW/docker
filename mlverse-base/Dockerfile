@@ -1,4 +1,17 @@
-FROM tensorflow/tensorflow:2.0.0-gpu
+ARG UBUNTU_VERSION=18.04
+
+ARG ARCH=
+ARG CUDA=10.2
+FROM nvidia/cuda${ARCH:+-$ARCH}:${CUDA}-base-ubuntu${UBUNTU_VERSION} as base
+# ARCH and CUDA are specified again because the FROM directive resets ARGs
+# (but their default value is retained if set previously)
+ARG ARCH
+ARG CUDA
+ARG CUDNN=7.6.5.32-1
+ARG CUDNN_MAJOR_VERSION=7
+ARG LIB_DIR_PREFIX=x86_64
+ARG LIBNVINFER=6.0.1-1
+ARG LIBNVINFER_MAJOR_VERSION=6
 
 ARG BUILD_DATE
 ENV BUILD_DATE ${BUILD_DATE:-2019-11-19}
@@ -12,6 +25,41 @@ LABEL org.label-schema.vcs-url="https://github.com/mlverse/mlverse-docker" \
       com.nvidia.volumes.needed="nvidia_driver"
 
 ARG DEBIAN_FRONTEND=noninteractive
+
+# Needed for string substitution
+SHELL ["/bin/bash", "-c"]
+RUN apt-get update && apt-get install -y --no-install-recommends \
+        build-essential \
+        cuda-command-line-tools-${CUDA/./-} \
+        # There appears to be a regression in libcublas10=10.2.2.89-1 which
+        # prevents cublas from initializing in TF. See
+        # https://github.com/tensorflow/tensorflow/issues/9489#issuecomment-562394257
+        libcublas10=10.2.1.243-1 \ 
+        libcublas-dev=10.2.1.243-1 \
+        cuda-nvrtc-${CUDA/./-} \
+        cuda-nvrtc-dev-${CUDA/./-} \
+        cuda-cudart-dev-${CUDA/./-} \
+        cuda-cufft-dev-${CUDA/./-} \
+        cuda-curand-dev-${CUDA/./-} \
+        cuda-cusolver-dev-${CUDA/./-} \
+        cuda-cusparse-dev-${CUDA/./-} \
+        libcudnn7=${CUDNN}+cuda${CUDA} \
+        libcudnn7-dev=${CUDNN}+cuda${CUDA} \
+        libcurl3-dev \
+        libfreetype6-dev \
+        libhdf5-serial-dev \
+        libzmq3-dev \
+        pkg-config \
+        rsync \
+        software-properties-common \
+        unzip \
+        zip \
+        zlib1g-dev \
+        wget \
+        git \
+        && \
+    find /usr/local/cuda-${CUDA}/lib64/ -type f -name 'lib*_static.a' -not -name 'libcudart_static.a' -delete && \
+    rm /usr/lib/${LIB_DIR_PREFIX}-linux-gnu/libcudnn_static_v7.a
 
 RUN apt-get update
 RUN apt-get install -y bash-completion ca-certificates file fonts-texgyre g++ gfortran gsfonts libblas-dev libbz2-1.0 libcurl3 libopenblas-dev libpangocairo-1.0-0 libpcre3 libpng16-16 libtiff5 liblzma5 locales make unzip zip zlib1g
