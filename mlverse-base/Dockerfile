@@ -66,6 +66,9 @@ RUN apt-get install -y bash-completion ca-certificates file fonts-texgyre g++ gf
 
 RUN apt-get install -y file libapparmor1 libcurl4-openssl-dev libedit2 libssl-dev lsb-release psmisc procps sudo wget libclang-dev libobjc-5-dev libobjc4 libgc1c2 wget yum-utils
 
+# mlverse dependencies
+RUN apt-get install -y libxml2-dev default-jre openjdk-8-jre-headless
+
 RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E298A3A825C0D65DFD57CBB651716619E084DAB9
 RUN add-apt-repository 'deb https://cloud.r-project.org/bin/linux/ubuntu bionic-cran40/'
 RUN apt update
